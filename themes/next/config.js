@@ -1,5 +1,5 @@
 const CONFIG = {
-  NEXT_HOME_BANNER: true, // 首页是否显示大图及标语 [true,false]
+  NEXT_HOME_BANNER: false, // 首页是否显示大图及标语 [true,false]
   NEXT_HOME_BANNER_STRINGS: [
     'Hi，我是一个程序员',
     'Hi，我是一个打工人',
@@ -18,7 +18,7 @@ const CONFIG = {
   NEXT_POST_HEADER_IMAGE_VISIBLE: true, // 文章详情页是否显示封面图
 
   // 右侧组件
-  NEXT_RIGHT_BAR: true, // 是否显示右侧栏
+  NEXT_RIGHT_BAR: false, // 是否显示右侧栏
   NEXT_RIGHT_LATEST_POSTS: true, // 右侧栏最新文章
   NEXT_RIGHT_CATEGORY_LIST: true, // 右侧边栏文章分类列表
   NEXT_RIGHT_TAG_LIST: true, // 右侧边栏标签分类列表
@@ -30,6 +30,7 @@ const CONFIG = {
   NEXT_MENU_TAG: true, // 显示标签
   NEXT_MENU_ARCHIVE: true, // 显示归档
   NEXT_MENU_SEARCH: true, // 显示搜索
+  NEXT_MENU_TAG_LIST: true, // 显示标签分类列表
 
   NEXT_WIDGET_TO_TOP: true, // 是否显示回顶
   NEXT_WIDGET_TO_BOTTOM: false, // 显示回底
