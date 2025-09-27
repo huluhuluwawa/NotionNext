@@ -25,7 +25,7 @@ const Style = () => {
           sans-serif !important;
         }
       }
-      // 底色
+      // 底色 (夜間模式)
       .dark body {
         background-color: rgb(35, 34, 34);
       }
@@ -36,58 +36,67 @@ const Style = () => {
         -ms-user-select: none;
       }
 
+      /* ========================================= */
+      /* 夜間模式：移除背景方格 */
+      /* ========================================= */
       .dark #theme-typography {
-        background-image: linear-gradient(
-              to right,
-              rgb(255 255 255 / 0.04) 1px,
-              transparent 1px
-            ),
-            linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+        /* 移除夜間模式下的方格背景 */
+        background-image: none;
+        
+        /* 保持夜間底色設定，維持深色背景 */
+        background-color: rgb(35, 34, 34);
+        background-size: initial; 
       }
 
+      /* ========================================= */
+      /* 日間模式：設置純色背景 */
+      /* ========================================= */
       #theme-typography {
         --primary-color: #2e405b;
-        background-color: rgb(255 255 255) / 1;
+        
+        /* [已修改] 日間模式背景底色：設置為 #FFFACD */
+        background-color: #FFFACD;
+        
         color: #2e405b;
-        background-size: 7px 7px;
+        background-size: initial; /* 移除方格尺寸設定 */
         text-shadow: 1px 1px 1px rgb(0 0 0 / 0.04);
-        background-image: linear-gradient(
-            to right,
-            rgb(0 0 0 / 0.04) 1px,
-            transparent 1px
-          ),
-          linear-gradient(to bottom, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+        
+        /* [已修改] 移除方格線條 */
+        background-image: none;
       }
 
-      #theme-typography #blog-name {
-        font-family: HiraMinProN-W6, 'Source Han Serif CN',
-          'Source Han Serif SC', 'Source Han Serif TC', serif;
-      }
+      /* 保持其他樣式不變... */
 
-      #theme-typography #blog-name-en {
-        font-family: HiraMinProN-W6, 'Source Han Serif CN',
-          'Source Han Serif SC', 'Source Han Serif TC', serif;
-      }
+      #theme-typography #blog-name {
+        font-family: HiraMinProN-W6, 'Source Han Serif CN',
+          'Source Han Serif SC', 'Source Han Serif TC', serif;
+      }
 
-      #theme-typography .blog-item-title {
-        color: #276077;
-      }
+      #theme-typography #blog-name-en {
+        font-family: HiraMinProN-W6, 'Source Han Serif CN',
+          'Source Han Serif SC', 'Source Han Serif TC', serif;
+      }
 
-      .dark #theme-typography .blog-item-title {
-        color: #d1d5db;
-      }
+      #theme-typography .blog-item-title {
+        color: #276077;
+      }
 
-      .notion {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-      }
+      .dark #theme-typography .blog-item-title {
+        color: #d1d5db;
+      }
 
-      #container-wrapper .scroll-hidden {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
-    `}</style>
-  )
+      .notion {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      #container-wrapper .scroll-hidden {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+    `}</style>
+  )
 }
 
 export { Style }
+
