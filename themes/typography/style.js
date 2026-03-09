@@ -46,7 +46,7 @@ const Style = () => {
       }
 
       #theme-typography {
-        --primary-color: #edeadb;
+        --primary-color: #2e405b;
         background-color: rgb(255 255 255) / 1;
         color: #2e405b;
         background-size: 7px 7px;
