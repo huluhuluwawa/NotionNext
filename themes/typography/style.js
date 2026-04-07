@@ -4,9 +4,10 @@ import React from 'react';
 /**
  * 此处样式只对当前主题生效
  * Typography Theme Style
- * 1. 背景色设置为 #edeadb
- * 2. 移除了背景网格
- * 3. 修复了语法错误和变量声明混杂问题
+ * 修复说明：
+ * 1. 彻底清除了代码中的 Diff 冲突字符（如 @@, +, - 等）
+ * 2. 背景色设置为 #edeadb，显式移除背景网格
+ * 3. 保持原有的 export { Style } 导出方式
  * @returns
  */
 const Style = () => {
@@ -30,7 +31,7 @@ const Style = () => {
         sans-serif !important;
     }
 
-    /* 底色 */
+    /* 底色 - 暗色模式 */
     .dark body {
       background-color: rgb(35, 34, 34);
     }
@@ -42,18 +43,19 @@ const Style = () => {
       -ms-user-select: none;
     }
 
-    /* 移除背景网格 */
+    /* 移除暗色模式背景网格 */
     .dark #theme-typography {
       background-image: none !important;
     }
 
+    /* 主题核心样式 */
     #theme-typography {
       --primary-color: #2e405b;
       background-color: #edeadb !important;
       color: #2e405b;
       background-size: 7px 7px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
-      /* 移除背景网格 */
+      /* 显式移除背景网格，防止线性渐变残留 */
       background-image: none !important;
     }
 
