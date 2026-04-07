@@ -46,17 +46,18 @@ const Style = () => {
       }
 
       #theme-typography {
-        --primary-color: #2e405b;
+        --primary-color: #edeadb;
         background-color: rgb(255 255 255) / 1;
+        color: #edeadb;
         color: #2e405b;
         background-size: 7px 7px;
         text-shadow: 1px 1px 1px rgb(0 0 0 / 0.04);
-        background-image: linear-gradient(
+        background-image: none(
             to right,
             rgb(0 0 0 / 0.04) 1px,
             transparent 1px
           ),
-          linear-gradient(to bottom, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+          none(to bottom, rgb(0 0 0 / 0.04) 1px, transparent 1px);
       }
 
       #theme-typography #blog-name {
