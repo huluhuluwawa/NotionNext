@@ -1,10 +1,13 @@
+/* eslint-disable react/no-unknown-property */
 import React from 'react';
 
 /**
+ * 此处样式只对当前主题生效
  * Typography Theme Style
- * 1. Background color set to #edeadb
- * 2. Background grid removed
- * 3. Fixed syntax errors and mixed variable declarations
+ * 1. 背景色设置为 #edeadb
+ * 2. 移除了背景网格
+ * 3. 修复了语法错误和变量声明混杂问题
+ * @returns
  */
 const Style = () => {
   const css = `
@@ -27,18 +30,19 @@ const Style = () => {
         sans-serif !important;
     }
 
-    /* Dark mode background */
+    /* 底色 */
     .dark body {
       background-color: rgb(35, 34, 34);
     }
 
-    /* Prevent text selection */
+    /* 文本不可选取 */
     .forbid-copy {
       user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
     }
 
+    /* 移除背景网格 */
     .dark #theme-typography {
       background-image: none !important;
     }
@@ -49,7 +53,7 @@ const Style = () => {
       color: #2e405b;
       background-size: 7px 7px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
-      /* Remove background grid */
+      /* 移除背景网格 */
       background-image: none !important;
     }
 
