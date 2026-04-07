@@ -2,12 +2,13 @@
 import React from 'react';
 
 /**
- * 此处样式只对当前主题生效
- * 已修复花括号闭合错误、注释格式错误以及非法 CSS 语法
- * @returns
+ * Typography Theme Style
+ * 1. Background color set to #edeadb
+ * 2. Background grid removed
  */
 const Style = () => {
-  const css = `
+  return (
+    <style jsx global>{`
       html {
         -webkit-font-smoothing: antialiased;
       }
@@ -27,12 +28,12 @@ const Style = () => {
           sans-serif !important;
       }
 
-      /* 底色 - 修复：使用 CSS 标准注释 */
+      /* Dark mode background */
       .dark body {
         background-color: rgb(35, 34, 34);
       }
 
-      /* 文本不可选取 */
+      /* Prevent text selection */
       .forbid-copy {
         user-select: none;
         -webkit-user-select: none;
@@ -40,21 +41,16 @@ const Style = () => {
       }
 
       .dark #theme-typography {
-        background-image: linear-gradient(
-            to right,
-            rgba(255, 255, 255, 0.04) 1px,
-            transparent 1px
-          ),
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-image: none !important;
       }
 
       #theme-typography {
         --primary-color: #2e405b;
-        background-color: #ffffff;
+        background-color: #edeadb !important;
         color: #2e405b;
         background-size: 7px 7px;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
-        /* 修复：background-image 若要取消，直接设为 none，不要带括号内容 */
+        /* Remove background grid */
         background-image: none !important;
       }
 
@@ -81,16 +77,9 @@ const Style = () => {
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
       }
-  `;
-
-  return (
-    <style dangerouslySetInnerHTML={{ __html: css }} />
+    `}</style>
   );
 };
 
 export { Style };
 export default Style;
-  )
-}
-
-export { Style }
