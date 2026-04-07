@@ -1,15 +1,17 @@
 /* eslint-disable react/no-unknown-property */
+import React from 'react';
+
 /**
  * 此处样式只对当前主题生效
- * 此处不支持 tailwindCSS 的 @apply 语法
+ * 已修复花括号闭合错误、注释格式错误以及非法 CSS 语法
  * @returns
  */
 const Style = () => {
-  return (
-    <style jsx global>{`
+  const css = `
       html {
         -webkit-font-smoothing: antialiased;
       }
+
       .font-typography {
         font-weight: 400;
         font-family:
@@ -23,13 +25,14 @@ const Style = () => {
           PingFang HK,
           PingFang TC,
           sans-serif !important;
-        }
       }
-      // 底色
+
+      /* 底色 - 修复：使用 CSS 标准注释 */
       .dark body {
         background-color: rgb(35, 34, 34);
       }
-      // 文本不可选取
+
+      /* 文本不可选取 */
       .forbid-copy {
         user-select: none;
         -webkit-user-select: none;
@@ -38,32 +41,24 @@ const Style = () => {
 
       .dark #theme-typography {
         background-image: linear-gradient(
-              to right,
-              rgb(255 255 255 / 0.04) 1px,
-              transparent 1px
-            ),
-            linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+            to right,
+            rgba(255, 255, 255, 0.04) 1px,
+            transparent 1px
+          ),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
       }
 
       #theme-typography {
         --primary-color: #2e405b;
-        background-color: rgb(255 255 255) / 1;
+        background-color: #ffffff;
         color: #2e405b;
         background-size: 7px 7px;
-        text-shadow: 1px 1px 1px rgb(0 0 0 / 0.04);
-        background-image: none(
-            to right,
-            rgb(0 0 0 / 0.04) 1px,
-            transparent 1px
-          ),
-          none(to bottom, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
+        /* 修复：background-image 若要取消，直接设为 none，不要带括号内容 */
+        background-image: none !important;
       }
 
-      #theme-typography #blog-name {
-        font-family: HiraMinProN-W6, 'Source Han Serif CN',
-          'Source Han Serif SC', 'Source Han Serif TC', serif;
-      }
-
+      #theme-typography #blog-name,
       #theme-typography #blog-name-en {
         font-family: HiraMinProN-W6, 'Source Han Serif CN',
           'Source Han Serif SC', 'Source Han Serif TC', serif;
@@ -86,7 +81,15 @@ const Style = () => {
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
       }
-    `}</style>
+  `;
+
+  return (
+    <style dangerouslySetInnerHTML={{ __html: css }} />
+  );
+};
+
+export { Style };
+export default Style;
   )
 }
 
